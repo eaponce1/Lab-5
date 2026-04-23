@@ -1,9 +1,16 @@
 class VetsController < ApplicationController
+  before_action :set_vet, only: [:show]
+
   def index
-    @vets = Vet.all
+    @vets = Vet.includes(appointments: :pet)
   end
 
   def show
-    @vet = Vet.find(params[:id])
+  end
+
+  private
+
+  def set_vet
+    @vet = Vet.includes(appointments: :pet).find(params[:id])
   end
 end

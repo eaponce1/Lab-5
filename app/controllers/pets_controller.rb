@@ -1,9 +1,18 @@
 class PetsController < ApplicationController
+  before_action :set_pet, only: [:show]
+
+  # INDEX 
   def index
-    @pets = Pet.all
+    @pets = Pet.includes(:owner)
   end
 
+  # SHOW 
   def show
-    @pet = Pet.find(params[:id])
+  end
+
+  private
+
+  def set_pet
+    @pet = Pet.includes(:owner).find(params[:id])
   end
 end

@@ -26,10 +26,10 @@
           <!-- Phone -->
           <td><%= owner.phone %></td>
 
-          <!-- Pets (MEJORADO) -->
+          <!-- Pets (CORREGIDO N+1) -->
           <td class="text-center">
             <span class="badge bg-dark">
-              <%= owner.pets.count %>
+              <%= owner.pets.size %>
             </span>
           </td>
 
